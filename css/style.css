@@ -1,0 +1,45 @@
+:root{--bg:#0e0a1f;--gold:#f5c451;--tx:#ece9ff;--mut:#9b96c4;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;background:radial-gradient(circle at 50% -10%,#3b2a7a,var(--bg) 60%) fixed;color:var(--tx);min-height:100vh;padding:0 14px 40px;max-width:980px;margin:auto}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0 10px}
+h1{font-size:2rem;font-weight:800;letter-spacing:.06em;background:linear-gradient(90deg,var(--gold),#f472b6);-webkit-background-clip:text;color:transparent}
+#jade{background:#2a2250;padding:6px 14px;border-radius:20px;font-weight:600}
+#tabs{display:flex;gap:8px;margin:8px 0 18px}
+#tabs button,.btn{font:inherit;font-weight:600;color:var(--tx);background:#251f4a;border:1px solid #fff2;padding:9px 16px;border-radius:12px;cursor:pointer}
+#tabs button.on,.btn{background:linear-gradient(135deg,#7c3aed,#db2777);border-color:transparent}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.btn.alt{background:#251f4a;border:1px solid #fff3}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:14px}
+.box{background:#1a1633cc;border:1px solid #fff1;border-radius:16px;padding:16px;position:relative}
+.boss{text-align:center}.boss.elite{border-color:var(--gold);box-shadow:0 0 24px #f5c45133}
+.boss .btn{margin-top:10px;width:100%}
+.tag{position:absolute;top:10px;left:10px;font-size:.7rem;font-weight:800;background:#0006;padding:2px 8px;border-radius:8px;color:var(--gold)}
+.mut{color:var(--mut);font-size:.85rem;margin-top:4px}
+.av{font-size:4.5rem;line-height:1.2;animation:fl 2.4s ease-in-out infinite}img.av{width:90px;height:90px;object-fit:contain}
+@keyframes fl{50%{transform:translateY(-6px)}}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.pick{flex:1;min-width:150px;text-align:left;cursor:pointer;font:inherit;color:inherit}
+.pick.on{border-color:var(--gold);background:#2c2358}
+#modal,#battle{position:fixed;inset:0;background:#000b;display:grid;place-items:center;z-index:20;padding:12px;overflow:auto}
+#battle{background:radial-gradient(circle at 50% 30%,#35206b,#0b0716 70%)}
+[hidden]{display:none!important}
+.dlg{background:#1c1838;border:1px solid #fff2;border-radius:20px;padding:22px;max-width:540px;width:100%;animation:in .25s}
+@keyframes in{from{transform:scale(.92);opacity:0}}
+#arena{position:relative;width:100%;max-width:900px;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:340px}
+.side{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.unit{width:150px;text-align:center;position:relative;transition:transform .2s}
+.side.e .lunge{transform:translateX(-34px)}.side.p .lunge{transform:translateX(34px)}
+.unit.hit .av{filter:brightness(2) drop-shadow(0 0 12px #f43f5e)}
+.unit.dead{opacity:.2;filter:grayscale(1)}
+.bar{height:10px;background:#0007;border-radius:9px;overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;width:100%;transition:width .2s}
+.hp i{background:linear-gradient(90deg,#ef4444,#fb923c)}.en i{background:linear-gradient(90deg,#3b82f6,#a855f7)}
+.nm{font-weight:600;font-size:.9rem}.st{font-size:.75rem;color:var(--mut)}
+.pop{position:absolute;left:50%;top:0;font-weight:800;font-size:1.4rem;pointer-events:none;text-shadow:0 2px 4px #000;animation:up .9s forwards;z-index:5}
+@keyframes up{from{transform:translate(-50%,0)}to{transform:translate(-50%,-70px);opacity:0}}
+.pop.phys{color:#fff}.pop.magic{color:#a78bfa}.pop.true{color:#fcd34d}.pop.dodge{color:#67e8f9}.pop.crit{font-size:2rem;color:#fb923c}
+.proj{position:absolute;left:0;top:0;font-size:2rem;margin:-16px 0 0 -16px;pointer-events:none;z-index:4}
+.banner{position:fixed;left:50%;top:12%;transform:translateX(-50%);max-width:90vw;text-align:center;background:linear-gradient(90deg,#7c3aed,#db2777);padding:10px 22px;border-radius:30px;font-weight:800;z-index:40;animation:ban 2.2s forwards}
+@keyframes ban{0%{opacity:0;top:6%}12%,80%{opacity:1;top:12%}100%{opacity:0}}
+@media(max-width:640px){#arena{flex-direction:column}.unit{width:120px}.unit .av{font-size:3.4rem}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important}}
